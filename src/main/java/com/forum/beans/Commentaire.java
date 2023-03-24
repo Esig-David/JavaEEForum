@@ -8,7 +8,7 @@ public class Commentaire {
 		this.nom = nom;
 		this.commentaire = commentaire;
 	}
-	
+
 	public String getNom() {
 		return nom;
 	}
