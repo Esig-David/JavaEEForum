@@ -28,14 +28,13 @@ public class Commentaires {
             statement = connexion.createStatement();
 
             // Exécution de la requête
-            resultat = statement.executeQuery("SELECT nom, commentaire FROM commentaires;");
-
+            resultat = statement.executeQuery("SELECT auteur, contenu FROM commentaire;");
             // Récupération des données
             while (resultat.next()) {
-                String nom = resultat.getString("nom");
-                String textCommentaire = resultat.getString("commentaire");
+                String auteur = resultat.getString("auteur");
+                String contenu = resultat.getString("commentaire");
                 
-                Commentaire commentaire = new Commentaire(nom, textCommentaire);
+                Commentaire commentaire = new Commentaire(auteur, contenu);
                 listeCommentaires.add(commentaire);
                 
             }
@@ -64,7 +63,7 @@ public class Commentaires {
         }
 
         try {
-            connexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/forum", "root", "");
+            connexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/forum", "root", "mqqxzhtW24");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -74,10 +73,9 @@ public class Commentaires {
         loadDatabase();
         
         try {
-            PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO commentaire(nom, commentaire) VALUES(?, ?);");
-            preparedStatement.setString(1, commentaire.getNom());
+            PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO commentaire(auteur, contenu) VALUES(?, ?);");
+            preparedStatement.setString(1, commentaire.getAuteur());
             preparedStatement.setString(2, commentaire.getCommentaire());
-            
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

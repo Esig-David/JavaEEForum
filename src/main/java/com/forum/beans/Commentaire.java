@@ -1,28 +1,28 @@
 package com.forum.beans;
 
 public class Commentaire {
-	private String nom;
-	private String commentaire;
+	private String auteur;
+	private String contenu;
 	
-	public Commentaire(String nom, String commentaire) {
-		this.nom = nom;
-		this.commentaire = commentaire;
+	public Commentaire(String auteur, String contenu) {
+		this.auteur = auteur;
+		this.contenu = contenu;
 	}
 
-	public String getNom() {
-		return nom;
+	public String getAuteur() {
+		return auteur;
 	}
 	
-	public void setNom(String nom) {
-		this.nom = nom;;
+	public void setAuteur(String auteur) {
+		this.auteur = auteur;
 	}
 	
 	public String getCommentaire() {
-		return commentaire;
+		return contenu;
 	}
 	
-	public void setCommentaire(String commentaire) {
-		this.commentaire = commentaire;;
+	public void setCommentaire(String contenu) {
+		this.contenu = contenu;
 	}
 
 }

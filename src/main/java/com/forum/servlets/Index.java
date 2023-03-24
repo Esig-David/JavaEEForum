@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.forum.bdd.Commentaires;
+import com.forum.beans.Commentaire;
+
 
 @WebServlet("/Index")
 public class Index extends HttpServlet {
@@ -17,16 +20,21 @@ public class Index extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		Commentaires tableForum = new Commentaires();
+		request.setAttribute("commentaires", tableForum.recupererCommentaires());
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nom = request.getParameter("nom");
-		String commentaire = request.getParameter("commentaire");
-		request.setAttribute("nom", nom);
-		request.setAttribute("commentaire", commentaire);
+		String auteur = request.getParameter("auteur");
+		String contenu = request.getParameter("commentaire");
+		
+		Commentaire commentaire = new Commentaire(auteur, contenu);
+		Commentaires tableForum = new Commentaires();
+		tableForum.ajouterCommentaire(commentaire);
+		request.setAttribute("commentaires", tableForum.recupererCommentaires());
+
 		doGet(request, response);
 	}
 
