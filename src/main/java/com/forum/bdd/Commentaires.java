@@ -32,7 +32,7 @@ public class Commentaires {
             // Récupération des données
             while (resultat.next()) {
                 String auteur = resultat.getString("auteur");
-                String contenu = resultat.getString("commentaire");
+                String contenu = resultat.getString("contenu");
                 
                 Commentaire commentaire = new Commentaire(auteur, contenu);
                 listeCommentaires.add(commentaire);

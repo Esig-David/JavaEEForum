@@ -21,6 +21,7 @@ public class Index extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Commentaires tableForum = new Commentaires();
+				
 		request.setAttribute("commentaires", tableForum.recupererCommentaires());
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 
