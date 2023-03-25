@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Forum</title>
+		<link rel="stylesheet" href="resources/css/style.css" media="screen" />
+		
 		<h1>Forum</h1>
 	</head>
 	<body>
@@ -10,8 +12,8 @@
 			<label>Nom: </label>
 			<input type="text" id="auteur" name="auteur"><br/>
 			<label>Commentaire : </label>
-			<input type="text" id="commentaire" name="commentaire"><br/>
-			<input type="submit" value="Enregistrer">
+			<textarea  maxlength='1000' minlength='1' name="commentaire"></textarea>
+			<input id="submit" type="submit" value="Enregistrer">
 		</form>
 		
 		<h2>Commentaires :</h2>
