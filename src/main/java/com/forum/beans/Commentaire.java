@@ -17,11 +17,11 @@ public class Commentaire {
 		this.auteur = auteur;
 	}
 	
-	public String getCommentaire() {
+	public String getContenu() {
 		return contenu;
 	}
 	
-	public void setCommentaire(String contenu) {
+	public void setContenu(String contenu) {
 		this.contenu = contenu;
 	}
 

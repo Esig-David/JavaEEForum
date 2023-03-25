@@ -16,9 +16,24 @@
 		
 		<h2>Commentaires :</h2>
 		
-		<c:forEach var="commentaire" items="${commentaires}">
-			<li>${commentaire.auteur}: ${commentaire.commentaire}</li>
+		<table>
+			<thead>
+				<tr>
+					<th>Nom utilisateur</th>
+					<th>Commentaire</th>
+				</tr>
+				
+			</thead>
+			<tbody>
+				<c:forEach var="commentaire" items="${commentaires}">
+					<tr>
+						<td>${commentaire.auteur}</td> 
+						<td>${commentaire.contenu}</td>
+					</tr>
+				</c:forEach>							
+			</tbody>
 		
-		</c:forEach>
+		</table>
+		
 	</body>
 </html>

@@ -35,8 +35,7 @@ public class Commentaires {
                 String contenu = resultat.getString("contenu");
                 
                 Commentaire commentaire = new Commentaire(auteur, contenu);
-                listeCommentaires.add(commentaire);
-                
+                listeCommentaires.add(commentaire);                
             }
         } catch (SQLException e) {
         } finally {
@@ -75,7 +74,7 @@ public class Commentaires {
         try {
             PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO commentaire(auteur, contenu) VALUES(?, ?);");
             preparedStatement.setString(1, commentaire.getAuteur());
-            preparedStatement.setString(2, commentaire.getCommentaire());
+            preparedStatement.setString(2, commentaire.getContenu());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
